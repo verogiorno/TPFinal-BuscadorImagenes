@@ -1,0 +1,17 @@
+.noResultsCont {
+  margin-top: 2rem;
+}
+
+.noResultsCard {
+  text-align: center;
+  background-color: #F7EFE5;
+  border: none;
+}
+
+.noResultsCard .card-title {
+  margin-top: 1rem;
+}
+
+.noResultsCard .card-text, .noResultsCard .card-title {
+  color: #674188;
+}

@@ -111,6 +111,8 @@ const handlePreview = async (image) => {
 };
 
 
+
+
   return (
     <div>
     <Buscador />
