@@ -92,6 +92,24 @@ buscarResultadosInfinito()
     
 },[page])
 
+//Tocar la tecla ENTER para activar el botón Buscar
+const handleKeyPress = (event) => {
+  if (event.key === 'Enter') {
+    buscarResultados();
+  }
+};
+
+//Image Preview/Close
+const handlePreview = async (image) => {
+  const URL = `https://api.unsplash.com/photos/${image}/?client_id=YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo`
+  const respuesta = await fetch(URL);
+  const data = await respuesta.json();
+  console.log(data)
+  setSelectedImage(data);
+  setPreview (true)
+  document.body.style.overflow='hidden'
+};
+
 
   return (
     <div>
