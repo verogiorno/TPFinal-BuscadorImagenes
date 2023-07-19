@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import InfiniteScroll from "react-infinite-scroll-component" ;
 import Buscador from './Buscador';
 import Random from './Random';
@@ -58,10 +57,49 @@ function App() {
     console.log(data.results)
   };
 
+  //Get Random Images on Main
+
+useEffect(()=>{
+
+  const randomImg = async () => {
+      
+    const apiKey = 'YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo'
+    const URL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=15`
+    const respuesta = await fetch(URL);
+    const data = await respuesta.json();
+    setMostrarRandomArray(data)
+     console.log('aca se esta mostrando el random:' ,data)
+    setValorRender(valorRender + 1)
+      
+    }
+
+    randomImg()
+
+},[]) //Al no pasar ningún parámetro, sólo se ejecuta el Random una vez (al iniciar la App)
+
+//Scroll Infinito
+useEffect( () =>{ 
+  const buscarResultadosInfinito = async () =>{
+    const apiKey = 'YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo'
+    const URL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${inputValue}&per_page=30&page=${page}`
+
+    const response = await fetch(URL);
+    const data = await response.json();
+    setResultados((prevResultados)=> prevResultados.concat(data.results))
+}
+
+buscarResultadosInfinito()
+    
+},[page])
+
 
   return (
     <div>
     <Buscador />
+    <Random />
+    <Infinitescroll />
+    <Imgpreview />
+    <Noresults />
     </div>
 
   );
