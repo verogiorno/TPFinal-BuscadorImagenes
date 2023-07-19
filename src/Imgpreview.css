@@ -1,60 +1,124 @@
-.divContainer{
-    margin-top: 1.5rem;
-  }
-
-.grillaFotos {
-    gap: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
-}
-  
-.grillaFotos img{
-    aspect-ratio: 1;
-    object-fit: cover;
+.customCardPv, .descriptionPv, .location, .span1, .model, .tags, .divContFlex, .divContFlex .icono, .iconoCloud, .divContFlex .descP, .iconCont1, .iconCont2, .iconCont3, .iconoCloud, .btnCloseCont{
+  background-color: #fff6a6;
 }
 
-.customCard{
-  border-color: #F7EFE5;
+.customCardPv{
+  display: flex;
+  width: 80%;
+  margin: auto;
   padding-right: 0rem;
   padding-left: 0rem;
+  border-radius: 1rem;
 }
 
-.customCard:hover{
-  box-shadow: 0rem 0rem 1.1rem #674188;
-  transition: .5s;
+.customCardPv img{
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
-.imgDesc, .span2, .tagsRs, .locationRs, .bgAsRs{
-    background-color: #FFFBF5;
-  }
+.imgPrev{
+  width: 50%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem ;
+}
 
-.locationRs, .tagsRs{
+.descriptionPv{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  border-radius: 1rem;
+}
+
+.location, .model, .tags, .tagsRs{
   font-weight: bold;
 }
 
-.tagsRs{
+.tags{
+  color: #674188;
   text-decoration: none;
+  margin-right: 1rem;
 }
 
-.tagsRs:hover{
+.tags:hover{
   color: #C3ACD0;
   cursor: pointer;
 }
 
-.btnInfo{
-  font-size: small;
-  margin-top: 1rem;
+.divContFlex{
+  display: flex;
+  justify-content: center;
 }
 
-.btnInfo{
+.iconCont1, .iconCont2{
+  margin-right: 30%
+}
+
+.iconCont1, .iconCont2, .iconCont3{
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.icono, .iconoCloud{
+  font-size:xx-large;
+}
+
+.iconoCloud{
+  color: #212529;
+}
+
+.iconoCloud:hover{
+  color: #C3ACD0;
+}
+
+.btnCloseCont{
+  display: flex;
+  justify-content: center;
+}
+
+.btnClosePv{
   background-color: #C3ACD0;
   border-color: #C3ACD0;
 }
 
-.btnInfo:active:focus, .btnInfo:hover{
+.btnClosePv:active:focus, .btnClosePv:hover{
   background-color: #674188;
   border-color: #674188;
   transition: .4s;
+}
+
+/*Preview Overlap*/
+.previewImgCont.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+@media screen and (max-width: 768px){
+  .customCardPv{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descriptionPv{
+    width: 100%;
+    margin-top: .5rem;
+  }
+
+  .imgPrev{
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 0rem ;
+  }
 }
