@@ -1,6 +1,10 @@
 import React from "react";
+import { GlobalContext } from "../../App";
+import { useContext } from "react";
+import "./Buscador.css"
 
-function Buscador(){
+const Buscador=()=> {
+  const{setInputValue, buscarResultados, inputValue}=useContext(GlobalContext)
     return(
         <div className='input-group mb-3 searchBox'>
         <input
@@ -18,4 +22,4 @@ function Buscador(){
     );
 }
 
-export default Buscador;
+export {Buscador}

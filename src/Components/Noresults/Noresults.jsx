@@ -1,8 +1,8 @@
 import React from "react";
+import "./Noresults.css"
 
-function Noresults(){
+const Noresults = ()=> {
     return(
-        {random==2 && (
             <div className="container-fluid noResultsCont">
               <div className="row justify-content-center">
                 <div className="col-md-4 card noResultsCard">
@@ -14,8 +14,7 @@ function Noresults(){
                 </div>
               </div>
             </div>
-          )}
     );
 }
 
-export default Noresults;
+export {Noresults};

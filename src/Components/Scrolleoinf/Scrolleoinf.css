@@ -52,9 +52,14 @@
 
 .tagsRs{
   text-decoration: none;
+  color: #674188;
 }
 
 .tagsRs:hover{
   color: #C3ACD0;
   cursor: pointer;
+}
+
+.span2{
+  font-weight: lighter;
 }

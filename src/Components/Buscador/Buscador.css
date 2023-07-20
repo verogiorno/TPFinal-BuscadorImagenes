@@ -1,0 +1,25 @@
+.searchBox{
+    width: 80%;
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+  
+  .inptBuscar{
+    background-color: #FFFBF5;
+  }
+  
+  .inptBuscar:focus{
+    border-color: #674188;
+    background-color: #FFFBF5;
+  }
+  
+  .btnBuscar{
+    background-color: #674188;
+    border-color: #674188;;
+  }
+  
+  .btnBuscar:active:focus, .btnBuscar:hover{
+    background-color: #C3ACD0;
+    border-color: #C3ACD0;
+    transition: .4s;
+  }

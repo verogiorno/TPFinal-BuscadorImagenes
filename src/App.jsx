@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import InfiniteScroll from "react-infinite-scroll-component" ;
-import Buscador from './Buscador';
-import Random from './Random';
-import Infinitescroll from './Infinitescroll';
-import Imgpreview from './Imgpreview';
-import Noresults from './Noresults';
+import React, { useState, useEffect } from 'react';
+import {Buscador} from './Components/Buscador/Buscador';
+import {Random} from './Components/Random/Random';
+import {Scrolleoinf} from './Components/Scrolleoinf/Scrolleoinf';
+import {Noresults} from './Components/Noresults/Noresults';
+import InfiniteScroll from "react-infinite-scroll-component";
+export const GlobalContext = React.createContext()
 
 function App() {
   const [resultados, setResultados] = useState([]);
@@ -17,8 +17,8 @@ function App() {
   const [showNoResults, setShowNoResults] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [searchError, setSearchError] = useState(false);
-
-  //Buscador Funcional
+  
+//Buscador Funcional
   const buscarResultados = async (valor) => {
     if (inputValue.trim() === '') {
       return;
@@ -31,7 +31,7 @@ function App() {
    
     let prueba=3
   
-    const apiKey = 'YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo';
+    const apiKey = '6kuNwNKg2DBE06ziucijyHQdnHJe4_8yvDnurYw_nO8';
     const URL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${palabra}&per_page=20`;
   
     const response = await fetch(URL);
@@ -47,14 +47,12 @@ function App() {
     setPage(2);
     if(data.results.length==0){
       let probando=prueba
-      console.log(probando)
       setRandom(2) 
       setSearchError(true)
     }else{
       setRandom(1)
       setSearchError(false)
     }
-    console.log(data.results)
   };
 
   //Get Random Images on Main
@@ -63,12 +61,11 @@ useEffect(()=>{
 
   const randomImg = async () => {
       
-    const apiKey = 'YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo'
-    const URL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=15`
+    const apiKey = '6kuNwNKg2DBE06ziucijyHQdnHJe4_8yvDnurYw_nO8'
+    const URL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=30`
     const respuesta = await fetch(URL);
     const data = await respuesta.json();
     setMostrarRandomArray(data)
-     console.log('aca se esta mostrando el random:' ,data)
     setValorRender(valorRender + 1)
       
     }
@@ -80,7 +77,7 @@ useEffect(()=>{
 //Scroll Infinito
 useEffect( () =>{ 
   const buscarResultadosInfinito = async () =>{
-    const apiKey = 'YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo'
+    const apiKey = '6kuNwNKg2DBE06ziucijyHQdnHJe4_8yvDnurYw_nO8'
     const URL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${inputValue}&per_page=30&page=${page}`
 
     const response = await fetch(URL);
@@ -101,27 +98,41 @@ const handleKeyPress = (event) => {
 
 //Image Preview/Close
 const handlePreview = async (image) => {
-  const URL = `https://api.unsplash.com/photos/${image}/?client_id=YouQqOd8I-uJprnEiQvJaiM6OxHa9EP6tCJcXdJYoyo`
+  const URL = `https://api.unsplash.com/photos/${image}/?client_id=6kuNwNKg2DBE06ziucijyHQdnHJe4_8yvDnurYw_nO8`
   const respuesta = await fetch(URL);
   const data = await respuesta.json();
-  console.log(data)
   setSelectedImage(data);
   setPreview (true)
   document.body.style.overflow='hidden'
 };
 
 
+const global = {resultados, setResultados, page, setPage, mostrarRandomArray, setMostrarRandomArray, valorRender, setValorRender, random, setRandom, selectedImage, setSelectedImage, preview, setPreview, showNoResults, setShowNoResults, inputValue, setInputValue, searchError, setSearchError, buscarResultados, handleKeyPress, handlePreview}
 
 
   return (
-    <div>
-    <Buscador />
-    <Random />
-    <Infinitescroll />
-    <Imgpreview />
-    <Noresults />
-    </div>
+    <GlobalContext.Provider value={global}>
+      <Buscador />
+      
+      {
+        random==0 &&
+         <Random />
+      }
+      
+      <InfiniteScroll dataLength={resultados.length}hasMore={true}next={()=> setPage((prevPage) => prevPage + 1)}>
+      {
+        random==1 &&
+          <Scrolleoinf/>
+      }
 
+      {  
+        random==2 &&
+          <Noresults />   
+      }
+      
+      </InfiniteScroll>
+      
+    </GlobalContext.Provider>
   );
 }
 
