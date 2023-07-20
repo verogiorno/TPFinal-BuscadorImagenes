@@ -1,4 +1,4 @@
-.customCardPv, .descriptionPv, .location, .span1, .model, .tags, .divContFlex, .divContFlex .icono, .iconoCloud, .divContFlex .descP, .iconCont1, .iconCont2, .iconCont3, .iconoCloud, .btnCloseCont, .bgAs{
+.customCardPv, .descriptionPv, .location, .span1, .model, .tags, .divContFlex, .divContFlex .icono, .iconoCloud, .divContFlex .descP, .iconCont1, .iconCont2, .iconCont3, .iconoCloud, .btnCloseCont, .bgAs, strong{
   background-color: #fff6a6;
 }
 
@@ -90,7 +90,7 @@
   transition: .4s;
 }
 
-.span1, .model .span{
+.span1{
   font-weight: lighter;
 }
 

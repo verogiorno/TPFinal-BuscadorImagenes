@@ -10,9 +10,9 @@ const Imgpreview = ()=> {
             <div className="container-fluid customCardPv">
               <img src={selectedImage.urls.regular} alt='' className="img-fluid imgPrev" />
                 <div className="descriptionPv">
-                  <p className="text-left location">Descripción: <span className='span1'>{selectedImage.alt_description?selectedImage.alt_description:"Info no disponible"}</span></p>
-                  <p className="text-left location">Ubicación: <span className='span1'>{selectedImage.location.country?selectedImage.location.country:"Info no disponible"}</span></p>
-                  <p className="text-left model">Cámara: <span className='span1'>{selectedImage.exif.name?selectedImage.exif.name:"Info no disponible"}</span></p>
+                  <p className="text-left location"><strong>Descripción:</strong> <span className='span1'>{selectedImage.alt_description?selectedImage.alt_description:"Info no disponible"}</span></p>
+                  <p className="text-left location"><strong>Ubicación:</strong> <span className='span1'>{selectedImage.location.country?selectedImage.location.country:"Info no disponible"}</span></p>
+                  <p className="text-left model"><strong>Cámara:</strong> <span className='span1'>{selectedImage.exif.name?selectedImage.exif.name:"Info no disponible"}</span></p>
                   <div className='bgAs'>
                     <a className="text-left tags"> #{selectedImage.tags_preview[0].title}</a>
                     <a className="text-left tags"> #{selectedImage.tags_preview[1].title}</a>
