@@ -90,6 +90,10 @@
   transition: .4s;
 }
 
+.span1{
+  font-weight: lighter;
+}
+
 /*Preview Overlap*/
 .previewImgCont.fullscreen {
   position: fixed;
