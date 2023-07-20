@@ -32,7 +32,7 @@
   border-radius: 1rem;
 }
 
-.location, .model, .tags, .tagsRs{
+.tags, .tagsRs{
   font-weight: bold;
 }
 
@@ -88,10 +88,6 @@
   background-color: #674188;
   border-color: #674188;
   transition: .4s;
-}
-
-.span1{
-  font-weight: lighter;
 }
 
 /*Preview Overlap*/
