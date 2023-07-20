@@ -90,7 +90,7 @@
   transition: .4s;
 }
 
-.span1{
+.span1, .model .span{
   font-weight: lighter;
 }
 
