@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TPFinal-BuscadorImagenes/static/css/main.1ab591ab.css",
+    "main.js": "/TPFinal-BuscadorImagenes/static/js/main.b7c2328c.js",
+    "index.html": "/TPFinal-BuscadorImagenes/index.html",
+    "main.1ab591ab.css.map": "/TPFinal-BuscadorImagenes/static/css/main.1ab591ab.css.map",
+    "main.b7c2328c.js.map": "/TPFinal-BuscadorImagenes/static/js/main.b7c2328c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ab591ab.css",
+    "static/js/main.b7c2328c.js"
+  ]
+}
